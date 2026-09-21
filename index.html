@@ -237,7 +237,18 @@
     font-size:clamp(19px,2.4vw,30px); color:var(--brand-700); text-decoration:none; word-break:break-all; }
   @media (max-width:760px){ .qr-grid{ grid-template-columns:1fr; gap:24px; justify-items:center; text-align:center; } }
 
-  @media print{ .topbar{position:static;} .figure,.stat-grid,.card{box-shadow:none;} }
+  /* ---------- modo apresentação (passador de slides) ---------- */
+  .pres-nav{ position:fixed; right:18px; bottom:18px; z-index:60; display:flex; align-items:center; gap:4px;
+    padding:4px; border-radius:999px; background:color-mix(in srgb, var(--surface) 92%, transparent);
+    border:1px solid var(--line); box-shadow:var(--sh-2); backdrop-filter:blur(8px); opacity:.45; transition:opacity .2s; }
+  .pres-nav:hover{ opacity:1; }
+  .pres-nav button{ all:unset; cursor:pointer; width:40px; height:40px; border-radius:999px; display:grid; place-items:center;
+    color:var(--brand-800); }
+  .pres-nav button:hover{ background:var(--brand-050); }
+  .pres-nav button:focus-visible{ outline:2px solid var(--brand-500); outline-offset:1px; }
+  .pres-nav svg{ width:20px; height:20px; }
+  @media (hover:none), (pointer:coarse){ .pres-nav{ display:none; } }
+  @media print{ .topbar{position:static;} .pres-nav{display:none;} .figure,.stat-grid,.card{box-shadow:none;} }
 </style>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1476,3 +1487,74 @@
   }catch(e){}
 })();
 </script>
+
+<nav class="pres-nav" aria-label="Navegação da apresentação">
+  <button type="button" id="presPrev" title="Voltar (PageUp / ←)" aria-label="Voltar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button>
+  <button type="button" id="presNext" title="Avançar (clique, PageDown, → ou espaço)" aria-label="Avançar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+</nav>
+
+<script>
+/* Modo apresentação: cada clique / tecla avança até o próximo bloco (seção, gráfico, foto, destaque),
+   sem nunca pular conteúdo — se o próximo bloco estiver longe, desce no máximo ~85% da tela. */
+(function(){
+  try{
+    var SEL = '.hero, .agenda, main > section, #qr, .figure, .photo-band, .photo-fig, .stat-grid, .mega-wrap, .grid-2, .grid-3, .callout, .quote';
+    var SEC = 'main > section, #qr, .agenda';
+    var topbar = document.querySelector('.topbar');
+    var goal = null, goalTime = 0;
+    function offset(){ return (topbar ? topbar.getBoundingClientRect().height : 0) + 14; }
+    function stops(){
+      var all = Array.prototype.slice.call(document.querySelectorAll(SEL)), out = [], y0 = window.scrollY, off = offset();
+      all.forEach(function(el){
+        // ignora blocos aninhados dentro de outro bloco (ex.: cards dentro de uma figura)
+        var p = el.parentElement ? el.parentElement.closest('.figure, .photo-band, .stat-grid, .grid-2, .grid-3, .callout, .quote, .mega-wrap') : null;
+        if(p) return;
+        var y = el.matches('.hero') ? 0 : Math.max(0, Math.round(el.getBoundingClientRect().top + y0 - off));
+        out.push({y:y, sec: el.matches(SEC)});
+      });
+      out.sort(function(a,b){ return a.y - b.y; });
+      return out;
+    }
+    function current(){ return (goal !== null && Date.now() - goalTime < 900) ? goal : window.scrollY; }
+    function maxY(){ return document.documentElement.scrollHeight - window.innerHeight; }
+    function go(dir){
+      var cur = current(), vh = window.innerHeight - offset(), st = stops(), t;
+      if(dir > 0){
+        var cap = cur + vh * 0.85; t = cap;
+        for(var i=0;i<st.length;i++){
+          var s = st[i];
+          if(s.y > cur + 24 && (s.sec || s.y > cur + vh * 0.2)){ t = Math.min(s.y, cap); break; }
+        }
+        t = Math.min(t, maxY());
+      } else {
+        var floor = cur - vh * 0.85; t = floor;
+        for(var j=st.length-1;j>=0;j--){
+          if(st[j].y < cur - 24){ t = Math.max(st[j].y, floor); break; }
+        }
+        t = Math.max(t, 0);
+      }
+      if(Math.abs(t - cur) < 2) return;
+      goal = t; goalTime = Date.now();
+      window.scrollTo({top:t, behavior:'smooth'});
+    }
+    function typing(e){ var el = e.target; return el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)); }
+    document.addEventListener('keydown', function(e){
+      if(typing(e) || e.altKey || e.ctrlKey || e.metaKey) return;
+      var k = e.key;
+      if(k === 'PageDown' || k === 'ArrowDown' || k === 'ArrowRight' || (k === ' ' && !e.shiftKey) || k === 'Enter'){ e.preventDefault(); go(1); }
+      else if(k === 'PageUp' || k === 'ArrowUp' || k === 'ArrowLeft' || (k === ' ' && e.shiftKey) || k === 'Backspace'){ e.preventDefault(); go(-1); }
+    });
+    // clique com o mouse em área vazia avança (links, botões e seleção de texto são respeitados)
+    document.addEventListener('click', function(e){
+      if(e.button !== 0 || (e.pointerType && e.pointerType !== 'mouse')) return;
+      if(e.target.closest('a, button, input, textarea, select, label, summary, .pres-nav')) return;
+      var sel = window.getSelection && window.getSelection();
+      if(sel && String(sel).length) return;
+      go(1);
+    });
+    document.getElementById('presNext').addEventListener('click', function(){ go(1); });
+    document.getElementById('presPrev').addEventListener('click', function(){ go(-1); });
+  }catch(e){}
+})();
+</script>
+
