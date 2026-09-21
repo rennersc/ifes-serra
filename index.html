@@ -51,7 +51,7 @@
   .hero-eyebrow{ display:flex; align-items:center; gap:10px; font-family:"IBM Plex Mono";
     font-size:15px; letter-spacing:.09em; text-transform:uppercase; color:var(--brand-700); }
   .hero-eyebrow .dot{ width:6px;height:6px;border-radius:50%; background:var(--gold); }
-  .hero h1{ color:var(--ink); font-size:clamp(36px,5.8vw,72px); line-height:1.05; max-width:17ch; letter-spacing:-.015em; }
+  .hero h1{ color:var(--ink); font-size:clamp(36px,5.8vw,72px); line-height:1.05; max-width:22ch; letter-spacing:-.015em; }
   .hero .sub{ color:var(--ink-2); font-size:clamp(19px,2.4vw,26px); max-width:52ch; font-weight:400; margin:0; }
   .hero-meta{ display:flex; flex-wrap:wrap; gap:12px 30px; margin-top:2px;
     padding-top:18px; padding-bottom:26px; border-top:1px solid var(--line); }
@@ -214,6 +214,18 @@
   .figure svg{ max-width:100% !important; }
   .figure svg.map{ max-width:880px !important; }
 
+
+  /* ---------- evento em destaque ---------- */
+  .event{ display:flex; flex-direction:column; gap:6px; padding:14px 0 14px 18px;
+    border-left:6px solid var(--brand-700); background:linear-gradient(90deg,var(--brand-050),transparent 80%); }
+  .event-name{ font-family:"Source Serif 4", Georgia, serif; font-weight:700; color:var(--brand-800);
+    font-size:clamp(24px,3.4vw,40px); line-height:1.12; letter-spacing:-.005em; }
+  .event-date{ font-family:"IBM Plex Mono"; font-size:clamp(14px,1.5vw,17px); letter-spacing:.08em;
+    text-transform:uppercase; color:var(--gold); font-weight:600; }
+  .foot-event{ font-family:"IBM Plex Mono"; font-size:15px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--brand-700); font-weight:600; margin-bottom:14px; }
+  .speaker{ padding-bottom:26px; }
+
   @media print{ .topbar{position:static;} .figure,.stat-grid,.card{box-shadow:none;} }
 </style>
 
@@ -233,17 +245,16 @@
 <header class="hero">
   <div class="wrap">
     <img class="hero-logo" src="data:image/png;base64,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" alt="Instituto Federal do Espírito Santo — Campus Serra">
-    <div class="hero-eyebrow"><span class="dot"></span> Palestra técnica · 24 de setembro de 2026</div>
+    <div class="event">
+      <span class="event-name">Semana Integrada de Ciência e Tecnologia 2026</span>
+      <span class="event-date">Palestra · 24 de setembro de 2026</span>
+    </div>
     <h1>Transição Energética e o Papel das Renováveis na Matriz Elétrica Brasileira</h1>
     <p class="sub">O Brasil já tem a matriz limpa. A pergunta de 2026 é se a rede, o mercado e a regulação aguentam o ritmo da expansão.</p>
     <div class="speaker">
       <div class="speaker-name">Prof. Dr. Renner Sartório Camargo</div>
       <div class="speaker-role">Coordenador Geral de Ensino · Ifes — Campus Serra</div>
       <a class="speaker-mail" href="mailto:rscamargo@ifes.edu.br">rscamargo@ifes.edu.br</a>
-    </div>
-    <div class="hero-meta">
-      <div><span class="k">Público</span><span class="v">Engenheiros, mestres e doutores</span></div>
-      <div><span class="k">Data</span><span class="v">24 de setembro de 2026</span></div>
     </div>
   </div>
 
@@ -255,22 +266,22 @@
 
 <div class="agenda">
   <div class="wrap">
-    <span class="eyebrow">Roteiro — 14 blocos, 45 a 50 minutos</span>
+    <span class="eyebrow">Roteiro</span>
     <div class="agenda-grid">
-      <div class="agenda-item"><span class="n">01</span><span class="t">Introdução</span><span class="m">2′</span></div>
-      <div class="agenda-item"><span class="n">02</span><span class="t">Matriz brasileira hoje</span><span class="m">5′</span></div>
-      <div class="agenda-item"><span class="n">03</span><span class="t">Perspectiva comparada</span><span class="m">3′</span></div>
-      <div class="agenda-item"><span class="n">04</span><span class="t">Tecnologias renováveis</span><span class="m">4′</span></div>
-      <div class="agenda-item key"><span class="n">05</span><span class="t">Desafios — <i>curtailment</i></span><span class="m">7′</span></div>
-      <div class="agenda-item key"><span class="n">06</span><span class="t">Estabilidade e inércia</span><span class="m">5′</span></div>
-      <div class="agenda-item"><span class="n">07</span><span class="t">Oportunidades econômicas</span><span class="m">4′</span></div>
-      <div class="agenda-item"><span class="n">08</span><span class="t">Cenários futuros — PDE 2035</span><span class="m">3′</span></div>
-      <div class="agenda-item"><span class="n">09</span><span class="t">Políticas públicas</span><span class="m">2′</span></div>
-      <div class="agenda-item"><span class="n">10</span><span class="t">Operação e regras tarifárias</span><span class="m">5′</span></div>
-      <div class="agenda-item key"><span class="n">11</span><span class="t">Leilões — quem paga a flexibilidade</span><span class="m">5′</span></div>
-      <div class="agenda-item"><span class="n">12</span><span class="t">Digitalização e IA</span><span class="m">3′</span></div>
-      <div class="agenda-item"><span class="n">13</span><span class="t">Conclusão e debate</span><span class="m">2′</span></div>
-      <div class="agenda-item"><span class="n">14</span><span class="t">Referências</span><span class="m">—</span></div>
+      <div class="agenda-item"><span class="n">01</span><span class="t">Introdução</span></div>
+      <div class="agenda-item"><span class="n">02</span><span class="t">Matriz brasileira hoje</span></div>
+      <div class="agenda-item"><span class="n">03</span><span class="t">Perspectiva comparada</span></div>
+      <div class="agenda-item"><span class="n">04</span><span class="t">Tecnologias renováveis</span></div>
+      <div class="agenda-item key"><span class="n">05</span><span class="t">Desafios — <i>curtailment</i></span></div>
+      <div class="agenda-item key"><span class="n">06</span><span class="t">Estabilidade e inércia</span></div>
+      <div class="agenda-item"><span class="n">07</span><span class="t">Oportunidades econômicas</span></div>
+      <div class="agenda-item"><span class="n">08</span><span class="t">Cenários futuros — PDE 2035</span></div>
+      <div class="agenda-item"><span class="n">09</span><span class="t">Políticas públicas</span></div>
+      <div class="agenda-item"><span class="n">10</span><span class="t">Operação e regras tarifárias</span></div>
+      <div class="agenda-item key"><span class="n">11</span><span class="t">Leilões — quem paga a flexibilidade</span></div>
+      <div class="agenda-item"><span class="n">12</span><span class="t">Digitalização e IA</span></div>
+      <div class="agenda-item"><span class="n">13</span><span class="t">Conclusão e debate</span></div>
+      <div class="agenda-item"><span class="n">14</span><span class="t">Referências</span></div>
     </div>
   </div>
 </div>
@@ -280,7 +291,7 @@
 
 <section class="sec" id="s01" data-title="Introdução">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">01</span><h2>Introdução</h2><span class="sec-time">≈ 2 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">01</span><h2>Introdução</h2></div>
   <p class="lede">O Brasil já tem matriz limpa por herança hidrelétrica. A questão desta palestra não é <i>quanta</i> renovável o país tem — é se a rede, o mercado e a regulação absorvem o ritmo da expansão.</p>
 
   <div class="stat-grid">
@@ -296,7 +307,7 @@
 
 <section class="sec" id="s02" data-title="Matriz energética brasileira atual">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">02</span><h2>Matriz Energética Brasileira Atual</h2><span class="sec-time">≈ 5 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">02</span><h2>Matriz Energética Brasileira Atual</h2></div>
   <p class="lede">Antes dos números, uma distinção que organiza todo o resto.</p>
 
   <div class="callout"><b>Três grandezas, não uma:</b> matriz energética (todo o consumo) ≠ capacidade instalada (MW) ≠ geração efetiva (MWh).</div>
@@ -435,7 +446,7 @@
 
 <section class="sec band" id="s03" data-title="Brasil em perspectiva comparada">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">03</span><h2>O Brasil em Perspectiva Comparada</h2><span class="sec-time">≈ 3 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">03</span><h2>O Brasil em Perspectiva Comparada</h2></div>
   <p class="lede">Nem triunfalismo, nem subestimação.</p>
 
   <div class="figure">
@@ -539,7 +550,7 @@
 
 <section class="sec" id="s04" data-title="Tecnologias renováveis">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">04</span><h2>Tecnologias Renováveis: Potencial e Perspectivas</h2><span class="sec-time">≈ 4 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">04</span><h2>Tecnologias Renováveis: Potencial e Perspectivas</h2></div>
  </div>
 
  <div class="photo-band">
@@ -670,7 +681,7 @@
 
 <section class="sec band" id="s05" data-title="Desafios da transição">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">05</span><h2>Desafios da Transição Energética</h2><span class="sec-time">≈ 7 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">05</span><h2>Desafios da Transição Energética</h2></div>
   <p class="lede">Onde o "Brasil renovável" encontra seus limites. O bloco central da palestra.</p>
 
   <div class="mega-wrap">
@@ -807,7 +818,7 @@
 
 <section class="sec" id="s06" data-title="Estabilidade e inércia do sistema">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">06</span><h2>Estabilidade, Inércia e Confiabilidade</h2><span class="sec-time">≈ 5 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">06</span><h2>Estabilidade, Inércia e Confiabilidade</h2></div>
   <p class="lede">Mais sutil e mais fundamental: a <b>perda de inércia síncrona</b> do SIN.</p>
 
   <p class="body-p">Massas girantes acopladas aos 60 Hz amortecem desequilíbrios e limitam o <b>RoCoF</b>. Inversor não faz isso sozinho.</p>
@@ -896,7 +907,7 @@
 
 <section class="sec" id="s07" data-title="Oportunidades econômicas">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">07</span><h2>Oportunidades Econômicas e Sociais</h2><span class="sec-time">≈ 4 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">07</span><h2>Oportunidades Econômicas e Sociais</h2></div>
   <p class="lede"><b>Powershoring:</b> levar indústria eletrointensiva para onde a energia limpa é abundante.</p>
  </div>
 
@@ -970,7 +981,7 @@
 
 <section class="sec band" id="s08" data-title="Cenários futuros">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">08</span><h2>Cenários Futuros para a Matriz Brasileira</h2><span class="sec-time">≈ 3 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">08</span><h2>Cenários Futuros para a Matriz Brasileira</h2></div>
   <p class="lede"><b>PDE 2035</b>, aprovado em 2 de julho de 2026.</p>
 
   <div class="figure">
@@ -1035,7 +1046,7 @@
 
 <section class="sec" id="s09" data-title="Políticas públicas">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">09</span><h2>Políticas Públicas e Recomendações</h2><span class="sec-time">≈ 2 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">09</span><h2>Políticas Públicas e Recomendações</h2></div>
 
   <div class="grid-2">
     <div class="card"><span class="tag">Em vigor desde 2017</span><h3>RenovaBio — Lei 13.576</h3><p>Mercado de CBIOs para biocombustíveis.</p></div>
@@ -1065,7 +1076,7 @@
 
 <section class="sec" id="s10" data-title="Operação do sistema e regras tarifárias">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">10</span><h2>Como o Sistema Realmente Opera: ONS, Mercado e Tarifas</h2><span class="sec-time">≈ 5 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">10</span><h2>Como o Sistema Realmente Opera: ONS, Mercado e Tarifas</h2></div>
   <p class="lede">O que separa discussão de princípios de discussão operacional.</p>
 
   <div class="figure">
@@ -1249,7 +1260,7 @@
 
 <section class="sec band" id="s11" data-title="Leilões">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">11</span><h2>Leilões: Como o Brasil Contrata Nova Capacidade</h2><span class="sec-time">≈ 5 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">11</span><h2>Leilões: Como o Brasil Contrata Nova Capacidade</h2></div>
   <p class="lede">Quatro certames, quatro estágios.</p>
 
   <div class="figure key">
@@ -1286,7 +1297,7 @@
 
 <section class="sec" id="s12" data-title="Digitalização e inteligência artificial">
  <div class="wrap">
-  <div class="sec-head"><span class="sec-num mono">12</span><h2>Digitalização, Medição Inteligente e IA Aplicada</h2><span class="sec-time">≈ 3 min</span></div>
+  <div class="sec-head"><span class="sec-num mono">12</span><h2>Digitalização, Medição Inteligente e IA Aplicada</h2></div>
   <p class="lede"><b>Portaria MME 126/2026:</b> medidores inteligentes em <b>2% das unidades ao ano</b>, desde 1º mar. 2026.</p>
 
   <div class="figure">
@@ -1331,7 +1342,7 @@
 
 <section class="kexit" id="s13" data-title="Conclusão">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num mono">13</span><h2>Uma matriz mais limpa exige um sistema mais inteligente</h2><span class="sec-time">≈ 2 min</span></div>
+    <div class="sec-head"><span class="sec-num mono">13</span><h2>Uma matriz mais limpa exige um sistema mais inteligente</h2></div>
     <p class="body-p" style="margin-top:14px">O Brasil já fez boa parte da transição. A pergunta agora é se <b>infraestrutura, regulação e capital humano</b> crescem no ritmo da capacidade instalada. O <i>curtailment</i> diz que ainda não.</p>
 
     <div class="stat-grid">
@@ -1413,6 +1424,7 @@
 </main>
 
 <footer class="page">
+  <div class="foot-event">Semana Integrada de Ciência e Tecnologia 2026</div>
   <div class="foot-name">Prof. Dr. Renner Sartório Camargo</div>
   <div class="foot-role">Ifes — Campus Serra</div>
   <a class="foot-mail" href="mailto:rscamargo@ifes.edu.br">rscamargo@ifes.edu.br</a>
