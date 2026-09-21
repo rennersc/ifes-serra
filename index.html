@@ -1543,6 +1543,7 @@
     document.addEventListener('keydown', function(e){
       if(typing(e) || e.altKey || e.ctrlKey || e.metaKey) return;
       var k = e.key;
+      if((k === 'Enter' || k === ' ') && e.target.closest && e.target.closest('a, button, summary')) return; // Enter/Espaço num link ou botão mantêm o comportamento normal
       if(k === 'PageDown' || k === 'ArrowDown' || k === 'ArrowRight' || (k === ' ' && !e.shiftKey) || k === 'Enter'){ e.preventDefault(); go(1); }
       else if(k === 'PageUp' || k === 'ArrowUp' || k === 'ArrowLeft' || (k === ' ' && e.shiftKey) || k === 'Backspace'){ e.preventDefault(); go(-1); }
     });
