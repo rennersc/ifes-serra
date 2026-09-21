@@ -314,7 +314,7 @@
 <section class="sec" id="s01" data-title="Introdução">
  <div class="wrap">
   <div class="sec-head"><span class="sec-num mono">01</span><h2>Introdução</h2></div>
-  <p class="lede">O Brasil já tem matriz limpa por herança hidrelétrica. A questão desta palestra não é <i>quanta</i> renovável o país tem — é se a rede, o mercado e a regulação absorvem o ritmo da expansão.</p>
+  <p class="lede">O Brasil já tem matriz limpa por herança hidrelétrica. A questão desta palestra não é <i>quanto</i> de energia renovável o país tem — é se a rede, o mercado e a regulação absorvem o ritmo da expansão.</p>
 
   <div class="stat-grid">
     <div class="stat-card"><div class="stat-value">49,4<span class="unit">%</span></div><div class="stat-label">Renováveis na matriz energética — contra 13,8% na OCDE e 14,5% no mundo</div><div class="stat-src">EPE, BEN Síntese 2026 (ano-base 2025)</div></div>
@@ -1495,7 +1495,7 @@
 
 <script>
 /* Modo apresentação: cada clique / tecla avança até o próximo bloco (seção, gráfico, foto, destaque),
-   sem nunca pular conteúdo — se o próximo bloco estiver longe, desce no máximo ~85% da tela. */
+   sem nunca pular conteúdo — se o próximo bloco estiver longe, desce no máximo ~1 tela. */
 (function(){
   try{
     var SEL = '.hero, .agenda, main > section, #qr, .figure, .photo-band, .photo-fig, .stat-grid, .mega-wrap, .grid-2, .grid-3, .callout, .quote';
@@ -1518,19 +1518,21 @@
     function current(){ return (goal !== null && Date.now() - goalTime < 900) ? goal : window.scrollY; }
     function maxY(){ return document.documentElement.scrollHeight - window.innerHeight; }
     function go(dir){
-      var cur = current(), vh = window.innerHeight - offset(), st = stops(), t;
+      // passo de ~1 tela, alinhando no início de um bloco/seção quando houver um por perto
+      var cur = current(), vh = window.innerHeight - offset(), st = stops(), t = null, i;
       if(dir > 0){
-        var cap = cur + vh * 0.85; t = cap;
-        for(var i=0;i<st.length;i++){
-          var s = st[i];
-          if(s.y > cur + 24 && (s.sec || s.y > cur + vh * 0.2)){ t = Math.min(s.y, cap); break; }
-        }
+        for(i=0;i<st.length;i++){ var y = st[i].y;               // 1) nova seção dentro da próxima tela
+          if(st[i].sec && y > cur + vh*0.25 && y <= cur + vh*0.92){ t = y; break; } }
+        if(t === null){ for(i=st.length-1;i>=0;i--){ var y2 = st[i].y;  // 2) bloco mais baixo que ainda cabe
+          if(y2 >= cur + vh*0.45 && y2 <= cur + vh*0.92){ t = y2; break; } } }
+        if(t === null) t = cur + vh*0.88;                          // 3) uma tela
         t = Math.min(t, maxY());
       } else {
-        var floor = cur - vh * 0.85; t = floor;
-        for(var j=st.length-1;j>=0;j--){
-          if(st[j].y < cur - 24){ t = Math.max(st[j].y, floor); break; }
-        }
+        for(i=0;i<st.length;i++){ var z = st[i].y;
+          if(st[i].sec && z >= cur - vh*0.92 && z < cur - 24){ t = z; break; } }
+        if(t === null){ for(i=0;i<st.length;i++){ var z2 = st[i].y;
+          if(z2 >= cur - vh*0.92 && z2 <= cur - vh*0.45){ t = z2; break; } } }
+        if(t === null) t = cur - vh*0.88;
         t = Math.max(t, 0);
       }
       if(Math.abs(t - cur) < 2) return;
