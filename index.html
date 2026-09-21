@@ -336,64 +336,50 @@
 
   <div class="figure key">
     <span class="figure-kicker">Figura 1 — a distinção central</span>
-    <div class="figure-title">Capacidade instalada ≠ geração efetiva</div>
-    <p class="figure-sub">Hidráulica: menos da metade da capacidade, mas ~60% da geração.</p>
+    <div class="figure-title">Quanto é renovável? Depende do que se mede</div>
+    <p class="figure-sub">Três números corretos para o mesmo país: 49,4%, 84,7% e 86,8%.</p>
     <div class="chart-scroll">
-      <svg viewBox="0 0 700 250" width="100%" style="max-width:700px" role="img"
-           aria-label="Comparação entre a composição da capacidade instalada (220,6 GW) e a da geração elétrica (775,9 TWh)">
-        <!-- ROW 1 — capacidade instalada -->
-        <text x="0" y="14" font-size="12.5" font-weight="600" fill="var(--chart-ink)">Capacidade instalada — 220,6 GW</text>
-        <text x="0" y="30" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono">ANEEL · posição ago. 2026</text>
-        <g transform="translate(0,42)">
-          <rect x="0"     y="0" width="298.5" height="34" rx="0" fill="var(--c-hidro)"><title>Hidráulica — 46,64% da capacidade instalada</title></rect>
-          <rect x="300.5" y="0" width="101.3" height="34" fill="var(--c-solar)"><title>Solar fotovoltaica — 15,83%</title></rect>
-          <rect x="403.8" y="0" width="68.3"  height="34" fill="var(--c-eolica)"><title>Eólica — 10,67%</title></rect>
-          <rect x="474.1" y="0" width="145.9" height="34" fill="var(--c-termica)"><title>Termelétrica (gás, biomassa, carvão, óleo) — 22,80%</title></rect>
-          <rect x="622.0" y="0" width="26.0"  height="34" rx="0" fill="var(--c-outras)"><title>Demais fontes, inclusive nuclear — ~4,06%</title></rect>
-          <g class="vlabel" font-size="11.5" fill="#ffffff">
-            <text x="149"   y="22" text-anchor="middle">46,6%</text>
-            <text x="351"   y="22" text-anchor="middle">15,8%</text>
-            <text x="438"   y="22" text-anchor="middle">10,7%</text>
-            <text x="547"   y="22" text-anchor="middle">22,8%</text>
-          </g>
-          <text class="vlabel" x="635" y="48" text-anchor="middle" font-size="10.5" fill="var(--chart-ink2)">4,1%</text>
-        </g>
-
-        <!-- conector -->
-        <g stroke="var(--gold)" stroke-width="1.6" fill="none">
-          <path d="M149 78 L149 96 L240 96 L240 150" stroke-dasharray="4 4"/>
-          <circle cx="149" cy="78" r="3" fill="var(--gold)" stroke="none"/>
-          <circle cx="240" cy="150" r="3" fill="var(--gold)" stroke="none"/>
-        </g>
-        <text x="256" y="100" font-size="11.5" fill="var(--gold)" font-weight="600">46,6% da capacidade instalada…</text>
-        <text x="256" y="115" font-size="11.5" fill="var(--gold)" font-weight="600">…mas ~60% da geração (fator de capacidade)</text>
-
-        <!-- ROW 2 — geração elétrica -->
-        <text x="0" y="140" font-size="12.5" font-weight="600" fill="var(--chart-ink)">Geração elétrica — 775,9 TWh em 2025</text>
-        <g transform="translate(0,150)">
-          <rect x="0"     y="0" width="386.6" height="34" fill="var(--c-hidro)"><title>Hidráulica e demais renováveis — 60,4% da geração</title></rect>
-          <rect x="388.6" y="0" width="169.0" height="34" fill="var(--c-eolica)"><title>Eólica + solar — 26,4% da geração</title></rect>
-          <rect x="559.6" y="0" width="84.5"  height="34" fill="var(--c-termica)"><title>Fontes não renováveis — 13,2% da geração</title></rect>
-          <g class="vlabel" font-size="11.5" fill="#ffffff">
-            <text x="193" y="22" text-anchor="middle">60,4%</text>
-            <text x="473" y="22" text-anchor="middle">26,4%</text>
-            <text x="602" y="22" text-anchor="middle">13,2%</text>
-          </g>
-        </g>
-        <text x="0" y="206" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono">EPE · BEN Síntese 2026, ano-base 2025</text>
-        <g transform="translate(0,222)" font-size="11.5" fill="var(--chart-ink2)">
-          <text x="0" y="10">Renovável na geração: <tspan class="vlabel" font-size="12.5" fill="var(--chart-ink)">86,8%</tspan> (−1,4 p.p., hidrologia) · solar +24,7% · eólica +8,2%</text>
-        </g>
+      <svg viewBox="0 0 660 268" width="100%" style="max-width:700px" role="img"
+           aria-label="Participação renovável em três grandezas: matriz energética 49,4%, capacidade instalada 84,7% e geração elétrica 86,8%, com a parcela de eólica e solar em cada uma">
+        <text x="0" y="12" font-size="12.5" font-weight="600" fill="var(--chart-ink)">Matriz energética — todo o consumo do país</text>
+        <text x="540" y="12" font-size="10.5" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="end">EPE · BEN 2026, ano-base 2025</text>
+        <rect x="0" y="22" width="236.0" height="32" fill="var(--c-hidro)" stroke="var(--surface)" stroke-width="2"><title>Matriz energética: Hidráulica, biomassa e outras renováveis — 43,7%</title></rect>
+        <text class="vlabel" x="118.0" y="43" text-anchor="middle" font-size="12" fill="#ffffff">43,7%</text>
+        <rect x="236.0" y="22" width="30.8" height="32" fill="var(--c-eolica)" stroke="var(--surface)" stroke-width="2"><title>Matriz energética: Eólica + solar — 5,7%</title></rect>
+        <text class="vlabel" x="251.4" y="70" text-anchor="middle" font-size="11" fill="var(--c-eolica)">5,7%</text>
+        <rect x="266.8" y="22" width="273.2" height="32" fill="var(--c-termica)" stroke="var(--surface)" stroke-width="2"><title>Matriz energética: Não renovável — 50,6%</title></rect>
+        <text class="vlabel" x="403.4" y="43" text-anchor="middle" font-size="12" fill="#ffffff">50,6%</text>
+        <text class="vlabel" x="554" y="38" font-size="18" fill="var(--brand-700)">49,4%</text>
+        <text x="554" y="53" font-size="11" fill="var(--chart-muted)">renovável</text>
+        <text x="0" y="92" font-size="12.5" font-weight="600" fill="var(--chart-ink)">Capacidade instalada — 220,6 GW</text>
+        <text x="540" y="92" font-size="10.5" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="end">ANEEL · posição ago. 2026</text>
+        <rect x="0" y="102" width="314.3" height="32" fill="var(--c-hidro)" stroke="var(--surface)" stroke-width="2"><title>Capacidade instalada: Hidráulica, biomassa e outras renováveis — 58,2%</title></rect>
+        <text class="vlabel" x="157.2" y="123" text-anchor="middle" font-size="12" fill="#ffffff">58,2%</text>
+        <rect x="314.3" y="102" width="143.1" height="32" fill="var(--c-eolica)" stroke="var(--surface)" stroke-width="2"><title>Capacidade instalada: Eólica + solar — 26,5%</title></rect>
+        <text class="vlabel" x="385.9" y="123" text-anchor="middle" font-size="12" fill="#ffffff">26,5%</text>
+        <rect x="457.4" y="102" width="82.6" height="32" fill="var(--c-termica)" stroke="var(--surface)" stroke-width="2"><title>Capacidade instalada: Não renovável — 15,3%</title></rect>
+        <text class="vlabel" x="498.7" y="123" text-anchor="middle" font-size="12" fill="#ffffff">15,3%</text>
+        <text class="vlabel" x="554" y="118" font-size="18" fill="var(--brand-700)">84,7%</text>
+        <text x="554" y="133" font-size="11" fill="var(--chart-muted)">renovável</text>
+        <text x="0" y="172" font-size="12.5" font-weight="600" fill="var(--chart-ink)">Geração elétrica — 775,9 TWh em 2025</text>
+        <text x="540" y="172" font-size="10.5" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="end">EPE · BEN 2026, ano-base 2025</text>
+        <rect x="0" y="182" width="326.2" height="32" fill="var(--c-hidro)" stroke="var(--surface)" stroke-width="2"><title>Geração elétrica: Hidráulica, biomassa e outras renováveis — 60,4%</title></rect>
+        <text class="vlabel" x="163.1" y="203" text-anchor="middle" font-size="12" fill="#ffffff">60,4%</text>
+        <rect x="326.2" y="182" width="142.6" height="32" fill="var(--c-eolica)" stroke="var(--surface)" stroke-width="2"><title>Geração elétrica: Eólica + solar — 26,4%</title></rect>
+        <text class="vlabel" x="397.5" y="203" text-anchor="middle" font-size="12" fill="#ffffff">26,4%</text>
+        <rect x="468.8" y="182" width="71.3" height="32" fill="var(--c-termica)" stroke="var(--surface)" stroke-width="2"><title>Geração elétrica: Não renovável — 13,2%</title></rect>
+        <text class="vlabel" x="504.4" y="203" text-anchor="middle" font-size="12" fill="#ffffff">13,2%</text>
+        <text class="vlabel" x="554" y="198" font-size="18" fill="var(--brand-700)">86,8%</text>
+        <text x="554" y="213" font-size="11" fill="var(--chart-muted)">renovável</text>
+        <text x="0" y="262" font-size="11.5" fill="var(--chart-ink2)">Geração em 2025: renovável caiu 1,4 p.p. por hidrologia desfavorável · solar +24,7% · eólica +8,2%</text>
       </svg>
     </div>
     <div class="legend">
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-hidro)"></span>Hidráulica (e, na geração, demais renováveis)</span>
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-solar)"></span>Solar fotovoltaica</span>
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-eolica)"></span>Eólica (e, na geração, eólica + solar)</span>
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-termica)"></span>Termelétrica / não renovável</span>
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-outras)"></span>Demais fontes</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-hidro)"></span>Hidráulica, biomassa e outras renováveis</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-eolica)"></span>Eólica + solar</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:var(--c-termica)"></span>Não renovável</span>
     </div>
-    <div class="figure-note"><span>As duas barras não se somam: são recortes diferentes.</span><span><b>Fonte:</b> ANEEL (capacidade, ago. 2026) e EPE, BEN Síntese 2026 (geração, ano-base 2025)</span></div>
+    <div class="figure-note"><span>Na capacidade instalada, a hidráulica sozinha soma 46,6%. Segmentos calculados a partir dos totais publicados.</span><span><b>Fonte:</b> EPE, BEN Síntese 2026 (ano-base 2025) e ANEEL (capacidade, ago. 2026)</span></div>
   </div>
 
   <div class="figure">
@@ -505,7 +491,7 @@
           <rect x="0" y="154" width="264" height="22" rx="4" fill="url(#hatchOpen)"><title>Reino Unido: mais de 50% em 2024</title></rect>
           <rect x="0" y="190" width="150" height="22" rx="4" fill="#cfd5cb"><title>China: minoria renovável, ainda dominada por carvão</title></rect>
           <rect x="0" y="226" width="150" height="22" rx="4" fill="#cfd5cb"><title>Estados Unidos: minoria renovável, matriz apoiada em gás natural</title></rect>
-          <g font-size="11.5" fill="var(--chart-ink2)">
+          <g font-size="11.5" fill="var(--chart-ink2)" stroke="var(--surface)" stroke-width="4" stroke-linejoin="round" paint-order="stroke">
             <text x="272" y="97">&gt;50% desde 2023 (Energiewende)</text>
             <text x="272" y="133">&gt;50% em 2024 — 1ª vez</text>
             <text x="272" y="169">&gt;50% em 2024 — 1ª vez</text>
@@ -556,7 +542,7 @@
           <text x="140" y="238" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="middle">20</text>
           <text x="280" y="238" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="middle">40</text>
           <text x="420" y="238" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono" text-anchor="middle">60</text>
-          <text x="470" y="238" font-size="11" fill="var(--chart-muted)" text-anchor="end">US$/MWh</text>
+          <text x="556" y="238" font-size="11" fill="var(--chart-muted)" text-anchor="end">US$/MWh</text>
         </g>
       </svg>
     </div>
@@ -630,35 +616,35 @@
 
         <!-- projetos offshore -->
         <g>
-          <g transform="translate(300,74)">
+          <g transform="translate(410,74)">
             <circle r="13" fill="var(--c-eolica)" fill-opacity=".22" stroke="var(--c-eolica)" stroke-width="2"/>
             <circle r="4" fill="var(--c-eolica)"/>
             <text x="24" y="0" font-size="12" fill="var(--chart-ink)" dominant-baseline="middle">Espírito Santo I</text>
             <text x="24" y="15" font-size="10.5" fill="var(--chart-muted)" dominant-baseline="middle">em licenciamento</text>
             <title>Espírito Santo I — em licenciamento no Ibama</title>
           </g>
-          <g transform="translate(288,132)">
+          <g transform="translate(400,132)">
             <circle r="13" fill="var(--c-eolica)" fill-opacity=".22" stroke="var(--c-eolica)" stroke-width="2"/>
             <circle r="4" fill="var(--c-eolica)"/>
             <text x="24" y="0" font-size="12" fill="var(--chart-ink)" dominant-baseline="middle">Quesnelia</text>
             <text x="24" y="15" font-size="10.5" fill="var(--chart-muted)" dominant-baseline="middle">em licenciamento</text>
             <title>Quesnelia — em licenciamento no Ibama</title>
           </g>
-          <g transform="translate(296,226)">
+          <g transform="translate(408,238)">
             <circle r="13" fill="var(--c-eolica)" fill-opacity=".22" stroke="var(--c-eolica)" stroke-width="2"/>
             <circle r="4" fill="var(--c-eolica)"/>
             <text x="24" y="0" font-size="12" fill="var(--chart-ink)" dominant-baseline="middle">Vitória Offshore</text>
             <text x="24" y="15" font-size="10.5" fill="var(--chart-muted)" dominant-baseline="middle">em licenciamento</text>
             <title>Vitória Offshore — em licenciamento no Ibama</title>
           </g>
-          <g transform="translate(284,272)">
+          <g transform="translate(396,282)">
             <circle r="13" fill="var(--c-eolica)" fill-opacity=".22" stroke="var(--c-eolica)" stroke-width="2"/>
             <circle r="4" fill="var(--c-eolica)"/>
             <text x="24" y="0" font-size="12" fill="var(--chart-ink)" dominant-baseline="middle">Serra do Mar</text>
             <text x="24" y="15" font-size="10.5" fill="var(--chart-muted)" dominant-baseline="middle">em licenciamento</text>
             <title>Serra do Mar — em licenciamento no Ibama</title>
           </g>
-          <g transform="translate(276,314)">
+          <g transform="translate(388,322)">
             <circle r="13" fill="var(--c-eolica)" fill-opacity=".22" stroke="var(--c-eolica)" stroke-width="2"/>
             <circle r="4" fill="var(--c-eolica)"/>
             <text x="24" y="0" font-size="12" fill="var(--chart-ink)" dominant-baseline="middle">Projeto Ubu</text>
@@ -666,7 +652,7 @@
             <title>Projeto Ubu — em licenciamento, associado à região de Anchieta</title>
           </g>
           <!-- Votu Winds, o mais detalhado -->
-          <g transform="translate(268,384)">
+          <g transform="translate(400,368)">
             <circle r="22" fill="var(--gold)" fill-opacity=".18" stroke="var(--gold)" stroke-width="2.5"/>
             <circle r="6" fill="var(--gold)"/>
             <text x="34" y="-6" font-size="13" font-weight="600" fill="var(--chart-ink)">Votu Winds · 1.440 MW</text>
@@ -683,7 +669,7 @@
           <rect x="176" y="404" width="11" height="11" fill="var(--c-termica)"/>
           <text x="194" y="414" font-size="11" fill="var(--chart-ink)">Porto Central — hub H₂ e logística offshore</text>
           <rect x="188" y="206" width="11" height="11" fill="var(--brand-700)"/>
-          <text x="206" y="216" font-size="11" font-weight="600" fill="var(--brand-700)">Ifes Campus Serra · R$ 11,9 bi previstos</text>
+          <text x="206" y="216" font-size="11" font-weight="600" fill="var(--brand-700)">Serra · R$ 11,9 bi previstos</text>
         </g>
       </svg>
     </div>
@@ -764,7 +750,7 @@
           <text x="140" y="247" text-anchor="middle" fill="var(--brand-700)">9,3%</text>
           <text x="370" y="214" text-anchor="middle" fill="var(--brand-700)">20,6%</text>
         </g>
-        <text x="580" y="168" text-anchor="middle" font-size="11" fill="var(--brand-700)" font-style="italic">em elevação</text>
+        <text x="580" y="160" text-anchor="middle" font-size="11" fill="var(--brand-700)" font-style="italic">em elevação</text>
 
         <!-- eixo x -->
         <g font-size="12.5" fill="var(--chart-ink2)">
@@ -848,6 +834,7 @@
   <div class="figure key">
     <span class="figure-kicker">Figura 8 — diagrama conceitual</span>
     <div class="figure-title">Por que geração inversora reduz a inércia do sistema</div>
+    <p class="figure-sub"><b>RoCoF</b> (<i>Rate of Change of Frequency</i>) é a taxa de variação da frequência, em Hz/s. Quanto maior, mais rápido a frequência cai após um distúrbio e menos tempo as proteções e reservas têm para reagir.</p>
     <div class="chart-scroll">
       <svg viewBox="0 0 700 300" width="100%" style="max-width:700px" role="img"
            aria-label="Comparação entre gerador síncrono com massa girante e recurso baseado em inversor, e o efeito sobre a resposta de frequência após um distúrbio">
@@ -888,7 +875,7 @@
 
         <!-- gráfico RoCoF -->
         <g transform="translate(418,18)">
-          <text x="0" y="0" font-size="12" font-weight="600" fill="var(--chart-ink)">Resposta de frequência a um distúrbio</text>
+          <text x="0" y="-6" font-size="12" font-weight="600" fill="var(--chart-ink)">Resposta de frequência a um distúrbio</text>
           <rect x="0" y="16" width="252" height="26" fill="url(#safeBand)"/>
           <line x1="0" y1="16" x2="252" y2="16" stroke="var(--good)" stroke-width="1" stroke-dasharray="4 3"/>
           <line x1="0" y1="42" x2="252" y2="42" stroke="var(--good)" stroke-width="1" stroke-dasharray="4 3"/>
@@ -900,7 +887,7 @@
           <path d="M0 22 C 60 34, 140 58, 252 74" fill="none" stroke="var(--brand-700)" stroke-width="3" stroke-linecap="round"/>
           <path d="M0 22 C 34 86, 70 140, 252 154" fill="none" stroke="var(--c-termica)" stroke-width="3" stroke-linecap="round"/>
           <circle cx="0" cy="22" r="4.5" fill="var(--chart-ink)"/>
-          <text x="6" y="14" font-size="10.5" fill="var(--chart-ink2)">perda súbita de geração</text>
+          <text x="8" y="10" font-size="10.5" fill="var(--chart-ink2)">perda súbita de geração</text>
           <text x="252" y="96" text-anchor="end" font-size="11" font-weight="600" fill="var(--brand-700)">RoCoF baixo</text>
           <text x="252" y="170" text-anchor="end" font-size="11" font-weight="600" fill="var(--c-termica)">RoCoF alto — risco de cascata</text>
         </g>
@@ -1106,7 +1093,7 @@
     <div class="figure-title">Ordem de mérito de despacho e formação do PLD</div>
     <p class="figure-sub">Despacho por custo marginal. Fora dessa lógica (GFOM) nascem muitos dos cortes.</p>
     <div class="chart-scroll">
-      <svg viewBox="0 0 700 260" width="100%" style="max-width:700px" role="img"
+      <svg viewBox="0 0 700 272" width="100%" style="max-width:700px" role="img"
            aria-label="Curva de oferta por ordem de mérito de custo marginal, da hidrelétrica à térmica de pico, com o ponto de formação do PLD">
         <defs>
           <linearGradient id="meritFill" x1="0" y1="0" x2="1" y2="0">
@@ -1116,9 +1103,8 @@
         </defs>
         <line x1="60" y1="16" x2="60" y2="196" stroke="var(--chart-axis)"/>
         <line x1="60" y1="196" x2="660" y2="196" stroke="var(--chart-axis)"/>
-        <text x="16" y="104" font-size="11.5" fill="var(--chart-muted)" font-family="IBM Plex Mono">custo</text>
-        <text x="16" y="120" font-size="11.5" fill="var(--chart-muted)" font-family="IBM Plex Mono">marginal</text>
-        <text x="660" y="216" font-size="11" fill="var(--chart-muted)" text-anchor="end" font-family="IBM Plex Mono">capacidade acumulada despachada →</text>
+        <text x="66" y="24" font-size="11.5" fill="var(--chart-muted)" font-family="IBM Plex Mono">↑ custo marginal</text>
+        <text x="660" y="236" font-size="11" fill="var(--chart-muted)" text-anchor="end" font-family="IBM Plex Mono">capacidade acumulada despachada →</text>
 
         <path d="M60,188 H330 V182 H400 V160 H492 V112 H580 V36 H660 V196 H60 Z" fill="url(#meritFill)"/>
         <path d="M60,188 H330 V182 H400 V160 H492 V112 H580 V36 H660" fill="none" stroke="var(--brand-700)" stroke-width="3" stroke-linejoin="round"/>
@@ -1140,7 +1126,7 @@
         <g font-size="11" fill="var(--chart-muted)">
           <text x="195" y="180" text-anchor="middle">custo variável ≈ 0</text>
         </g>
-        <g transform="translate(60,236)">
+        <g transform="translate(60,262)">
           <text x="0" y="0" font-size="12" fill="var(--chart-ink2)">No pico solar, o PLD pode cair a quase zero.</text>
         </g>
       </svg>
@@ -1172,7 +1158,8 @@
           <circle cx="580" cy="70" r="11" fill="var(--gold)" stroke="var(--surface)" stroke-width="3"/>
           <text x="580" y="46" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--chart-ink)" font-family="IBM Plex Mono">nov. 2028</text>
           <text x="580" y="98" text-anchor="middle" font-size="11.5" fill="var(--chart-ink2)" font-weight="600">consumidores residenciais</text>
-          <text x="580" y="113" text-anchor="middle" font-size="11" fill="var(--chart-muted)">todos os brasileiros elegíveis a escolher fornecedor</text>
+          <text x="580" y="113" text-anchor="middle" font-size="11" fill="var(--chart-muted)">todos os brasileiros elegíveis</text>
+          <text x="580" y="128" text-anchor="middle" font-size="11" fill="var(--chart-muted)">a escolher o fornecedor</text>
         </g>
       </svg>
     </div>
@@ -1339,7 +1326,7 @@
         <g transform="translate(0,100)">
           <rect x="0" y="0" width="660" height="30" fill="var(--surface-2)" stroke="var(--line-strong)"/>
           <rect x="0" y="0" width="165" height="30" fill="var(--gold)"><title>Cerca de 2,5 milhões de unidades consumidoras, ~25% do consumo de baixa tensão</title></rect>
-          <text class="vlabel" x="14" y="20" font-size="12.5" fill="#ffffff">~25% do consumo de BT</text>
+          <text x="12" y="20" font-size="12" font-weight="600" fill="#ffffff">~25% do consumo de BT</text>
           <text x="660" y="20" text-anchor="end" font-size="12" fill="var(--chart-muted)" font-family="IBM Plex Mono">~2,5 milhões de UCs</text>
         </g>
         <text x="0" y="160" font-size="12" fill="var(--critical)">A 2% ao ano, universalizar leva décadas — a tarifa horária é para 2026.</text>
