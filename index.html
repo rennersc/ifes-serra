@@ -1187,14 +1187,14 @@
           <text x="0" y="122">Vespertino</text><text x="0" y="166" font-weight="600">Noturno</text>
         </g>
         <g font-size="10.5" fill="var(--chart-muted)" font-family="IBM Plex Mono">
-          <text x="0" y="48">0h–8h</text><text x="0" y="92">8h–10h</text>
-          <text x="0" y="136">10h–18h · pico solar</text><text x="0" y="180">18h–21h · pico de demanda</text>
+          <text x="0" y="48">23h–8h</text><text x="0" y="92">8h–14h · pico solar</text>
+          <text x="0" y="136">14h–18h</text><text x="0" y="180">18h–23h · pico de demanda</text>
         </g>
         <!-- barras: escala 120px = 100% -->
-        <rect x="192" y="22"  width="108" height="22" rx="4" fill="var(--c-eolica)"><title>Madrugada: 90% mais barata que a referência</title></rect>
-        <rect x="211" y="66"  width="89"  height="22" rx="4" fill="var(--c-eolica)"><title>Matutino: 74% mais barato</title></rect>
-        <rect x="296" y="110" width="4"   height="22" rx="1" fill="var(--c-eolica)"><title>Vespertino: 3% mais barato</title></rect>
-        <rect x="300" y="154" width="288" height="22" rx="4" fill="var(--c-termica)"><title>Noturno: 240% mais caro que a referência</title></rect>
+        <rect x="192" y="22"  width="108" height="22" rx="4" fill="var(--c-eolica)"><title>Madrugada (23h–7h59): 90% mais barata que a referência</title></rect>
+        <rect x="211" y="66"  width="89"  height="22" rx="4" fill="var(--c-eolica)"><title>Matutino (8h–13h59): 74% mais barato</title></rect>
+        <rect x="296" y="110" width="4"   height="22" rx="1" fill="var(--c-eolica)"><title>Vespertino (14h–17h59): 3% mais barato</title></rect>
+        <rect x="300" y="154" width="288" height="22" rx="4" fill="var(--c-termica)"><title>Noturno (18h–22h59): 240% mais caro que a referência</title></rect>
         <g class="vlabel" font-size="13">
           <text x="184" y="38"  text-anchor="end" fill="var(--c-eolica)">−90%</text>
           <text x="203" y="82"  text-anchor="end" fill="var(--c-eolica)">−74%</text>
@@ -1202,7 +1202,7 @@
           <text x="596" y="170" fill="var(--c-termica)" font-size="15">+240%</text>
         </g>
         <g transform="translate(0,232)">
-          <text x="0" y="0" font-size="12" fill="var(--chart-ink2)"><tspan font-weight="600">10h–14h:</tspan> fartura solar e eólica · <tspan font-weight="600">18h–21h:</tspan> solar cessa, entram fontes caras.</text>
+          <text x="0" y="0" font-size="12" fill="var(--chart-ink2)">Justificativa da ANEEL: entre <tspan font-weight="600">10h e 14h</tspan> sobra solar e eólica; entre <tspan font-weight="600">18h e 21h</tspan> a solar cessa e entram fontes caras.</text>
         </g>
       </svg>
     </div>
@@ -1210,7 +1210,7 @@
       <span class="legend-item"><span class="legend-swatch" style="background:var(--c-eolica)"></span>Mais barato que a referência</span>
       <span class="legend-item"><span class="legend-swatch" style="background:var(--c-termica)"></span>Mais caro que a referência</span>
     </div>
-    <div class="figure-note"><span></span><span><b>Fonte:</b> ANEEL / <a class="cite" href="https://canalsolar.com.br/fim-inercia-nova-tarifa-branca-baixa-tensao/" target="_blank" rel="noopener">CanalSolar</a>, 2026</span></div>
+    <div class="figure-note"><span>Proposta em consulta pública, ainda não é norma. Residencial B1; em B3 e B2 a maioria economiza.</span><span><b>Fonte:</b> ANEEL / <a class="cite" href="https://canalsolar.com.br/fim-inercia-nova-tarifa-branca-baixa-tensao/" target="_blank" rel="noopener">CanalSolar</a>, 30 mar. 2026</span></div>
   </div>
 
   <div class="grid-2">
