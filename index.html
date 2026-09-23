@@ -1169,15 +1169,15 @@
   <div class="callout"><b>Sem medidor horário não há mercado livre na baixa tensão</b> — o cronograma depende da Seção 12.</div>
 
   <div class="figure key">
-    <span class="figure-kicker">Figura 13 — a mudança de maior impacto sobre o consumidor</span>
-    <div class="figure-title">Tarifa Branca automática: quatro novos postos horários</div>
-    <p class="figure-sub">Variação proposta em relação à tarifa de referência:</p>
+    <span class="figure-kicker">Figura 13 — simulação do sinal horário</span>
+    <div class="figure-title">Tarifa Branca reformulada: quatro postos e um sinal horário agressivo</div>
+    <p class="figure-sub">Variação simulada da <b>TUSD Transporte</b> — a componente de rede, não a conta inteira.</p>
     <div class="chart-scroll">
       <svg viewBox="0 0 700 250" width="100%" style="max-width:700px" role="img"
            aria-label="Variação proposta de cada posto tarifário: madrugada 90 por cento mais barata, matutino 74 por cento mais barato, vespertino 3 por cento mais barato, noturno 240 por cento mais caro">
         <!-- eixo zero -->
         <line x1="300" y1="14" x2="300" y2="196" stroke="var(--chart-axis)" stroke-width="1.8"/>
-        <text x="300" y="214" text-anchor="middle" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono">referência</text>
+        <text x="300" y="214" text-anchor="middle" font-size="11" fill="var(--chart-muted)" font-family="IBM Plex Mono">TUSD convencional</text>
         <g stroke="var(--chart-grid)">
           <line x1="180" y1="14" x2="180" y2="196"/><line x1="420" y1="14" x2="420" y2="196"/>
           <line x1="540" y1="14" x2="540" y2="196"/>
@@ -1191,10 +1191,10 @@
           <text x="0" y="136">14h–18h</text><text x="0" y="180">18h–23h · pico de demanda</text>
         </g>
         <!-- barras: escala 120px = 100% -->
-        <rect x="192" y="22"  width="108" height="22" rx="4" fill="var(--c-eolica)"><title>Madrugada (23h–7h59): 90% mais barata que a referência</title></rect>
+        <rect x="192" y="22"  width="108" height="22" rx="4" fill="var(--c-eolica)"><title>Madrugada (23h–7h59): TUSD Transporte 90% menor que na tarifa convencional</title></rect>
         <rect x="211" y="66"  width="89"  height="22" rx="4" fill="var(--c-eolica)"><title>Matutino (8h–13h59): 74% mais barato</title></rect>
         <rect x="296" y="110" width="4"   height="22" rx="1" fill="var(--c-eolica)"><title>Vespertino (14h–17h59): 3% mais barato</title></rect>
-        <rect x="300" y="154" width="288" height="22" rx="4" fill="var(--c-termica)"><title>Noturno (18h–22h59): 240% mais caro que a referência</title></rect>
+        <rect x="300" y="154" width="288" height="22" rx="4" fill="var(--c-termica)"><title>Noturno (18h–22h59): TUSD Transporte 240% maior que na tarifa convencional</title></rect>
         <g class="vlabel" font-size="13">
           <text x="184" y="38"  text-anchor="end" fill="var(--c-eolica)">−90%</text>
           <text x="203" y="82"  text-anchor="end" fill="var(--c-eolica)">−74%</text>
@@ -1210,12 +1210,12 @@
       <span class="legend-item"><span class="legend-swatch" style="background:var(--c-eolica)"></span>Mais barato que a referência</span>
       <span class="legend-item"><span class="legend-swatch" style="background:var(--c-termica)"></span>Mais caro que a referência</span>
     </div>
-    <div class="figure-note"><span>Proposta em consulta pública, ainda não é norma. Residencial B1; em B3 e B2 a maioria economiza.</span><span><b>Fonte:</b> ANEEL / <a class="cite" href="https://canalsolar.com.br/fim-inercia-nova-tarifa-branca-baixa-tensao/" target="_blank" rel="noopener">CanalSolar</a>, 30 mar. 2026</span></div>
+    <div class="figure-note"><span>Exercício de simulação da consultoria TR Soluções, não uma proposta tarifária da ANEEL. A Consulta Pública ANEEL 046/2025 trata da migração automática.</span><span><b>Fonte:</b> Paulo Steele (TR Soluções), <a class="cite" href="https://canalsolar.com.br/fim-inercia-nova-tarifa-branca-baixa-tensao/" target="_blank" rel="noopener">CanalSolar</a>, 30 mar. 2026</span></div>
   </div>
 
   <div class="grid-2">
-    <div class="card" style="border-color:var(--critical)"><span class="tag" style="color:var(--critical)">Onde mora a polêmica</span><h3>53,5% pagam mais; 46,5% economizam</h3><p>Sem mudar hábitos, a maioria paga <b>+20,6%</b> e a minoria economiza 8,3%. O "tarifaço silencioso".</p></div>
-    <div class="card" style="border-color:var(--good)"><span class="tag" style="color:var(--good)">Do lado oposto</span><h3>Incentivo tecnológico enorme</h3><p>VE carregado de madrugada (até −90%), BESS residencial e inversores híbridos.</p></div>
+    <div class="card" style="border-color:var(--critical)"><span class="tag" style="color:var(--critical)">Onde mora a polêmica</span><h3>53,5% pagam mais; 46,5% economizam</h3><p>Na simulação, sem mudar hábitos, o residencial B1 tem alta média de <b>+20,6%</b> na componente de transporte, contra queda de 8,3% para os demais. Em B3 e B2, a maioria economiza.</p></div>
+    <div class="card" style="border-color:var(--good)"><span class="tag" style="color:var(--good)">Do lado oposto</span><h3>Incentivo tecnológico enorme</h3><p>VE carregado de madrugada (TUSD Transporte até −90%), BESS residencial e inversores híbridos.</p></div>
   </div>
 
   <h3 style="margin-top:32px;font-size:20px">Tarifa branca na geração distribuída — o "taxar o sol 2.0"</h3>
